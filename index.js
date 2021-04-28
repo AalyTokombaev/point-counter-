@@ -20,7 +20,9 @@ client.on('message', message => {
     if (!message.content.startsWith(prefix) || message.author.bot) return;
     console.log(message.content)
 
-    const args = message.content.slice(prefix.length).trim().split(/ + /);
+    const args = message.content.slice(prefix.length).trim().split(" ");
+    console.log(args);
+    console.log(typeof args);
     const command = args.shift().toLocaleLowerCase();
 
     if (command === "ping") {
@@ -28,6 +30,9 @@ client.on('message', message => {
     }
     if (command === "monkey") {
         client.commands.get('monkey').execute(message, args);
+    }
+    if (command == "args") {
+        client.commands.get("args").execute(message, args);
     }
 })
 
