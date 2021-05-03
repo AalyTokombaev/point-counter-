@@ -22,8 +22,9 @@ client.on('message', message => {
 
     const args = message.content.slice(prefix.length).trim().split(" ");
     console.log(args);
-    console.log(typeof args);
     const command = args.shift().toLocaleLowerCase();
+    console.log(typeof args[0]);
+    console.log(args[0]);
 
     if (command === "ping") {
         client.commands.get('ping').execute(message, args);
